@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True" SettingsObjectName="DemoProjectApplication2.Properties.Settings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Admin" Member="Admins">
+    <Type Name="Admin">
+      <Column Name="username" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category1" Member="Category1s">
+    <Type Name="Category1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="genre" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category1_Games_table" Member="Games_tables" ThisKey="Id" OtherKey="genre_id" Type="Games_table" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Games_table" Member="Games_tables">
+    <Type Name="Games_table">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="os" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="processor" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ram" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="gpu" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="directx" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="hdd" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="release" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="genre_type" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="genre_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category1_Games_table" Member="Category1" ThisKey="genre_id" OtherKey="Id" Type="Category1" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
